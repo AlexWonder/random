@@ -141,7 +141,7 @@
 # PROJECT_CC = 
 
 # Overcome problem on some (older??) machines
-# export MESA_GL_VERSION_OVERRIDE=2.1
+  export MESA_GL_VERSION_OVERRIDE=2.1
 
 # Set the application(exe) name so that git ignores it
 APPNAME=$(shell basename `pwd`).out
