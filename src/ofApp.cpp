@@ -5,18 +5,25 @@ using namespace std;
 //--------------------------------------------------------------
 void ofApp::setup(){
 jewel.load("diamond.png");// image to use (must be stored in "random/bin/data" folder)
+
+/*Uniform Distribution
 int xmin = 0, xmax = 1200, ymin = 0, ymax = 970;
 std::random_device rd;
 std::mt19937 en(rd());
 std::uniform_int_distribution<int> x_dist(xmin,xmax);
-std::uniform_int_distribution<int> y_dist(ymin,ymax);
+std::uniform_int_distribution<int> y_dist(ymin,ymax);*/
+
+//Normal Distribution
+float xmean = 800.0f, xsd = 100.0f, ymean = 600.0f, ysd = 80.0f;
+std::random_device rd;
+std::mt19937 eng(rd());
+std::normal_distribution<float> x_dist(xmean,xsd);
+std::normal_distribution<float> y_dist(ymean,ysd);
 for (int i=0; i<20; ++i) {
-	X.push_back(x_dist(en));
-	Y.push_back(y_dist(en));
+	X.push_back(x_dist(eng));
+	Y.push_back(y_dist(eng));
 }
 
-//X = {500, 1000, 30, 100, 300, 200, 750, 380 };// set of x-coordinates for jewel
-//Y = {630, 400, 900,40, 200, 0, 90, 30}; //set of y-coordinates for jewel
 }
 
 //--------------------------------------------------------------
